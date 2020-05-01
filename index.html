@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>Bingo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class = "widthFormat">
+      <div id="grid-container">
+        <div class="grid-large"></div>
+        <div class="grid-large">1</div>
+        <div class="grid-large">1</div>
+        <div class="grid-large">1</div>  
+        <div class="grid-large">1</div>
+        <div class="grid-large">1</div>
+        <div class="grid-large"></div>
+        <div class="grid-clear">ww</div>
+        <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
+        <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="grid-clear">ww</div>
+        <div class="grid-clear"></div>
+        <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
+        <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
+        <div class="numO" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="grid-clear"></div>
+        <div class="grid-clear"></div>
+        <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
+        <div class="grid-item" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=free(this)></div>
+        <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
+        <div class="grid-clear"></div>
+        <div class="grid-clear"></div>
+        <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div> 
+        <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="grid-clear"></div>
+        <div class="grid-clear"></div> 
+        <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
+        <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div> 
+        <div class="grid-clear"></div>
+        <div class="grid-small"></div>
+        <div class="grid-small">1</div>
+        <div class="grid-small">1</div>
+        <div class="grid-small">1</div>  
+        <div class="grid-small">1</div>
+        <div class="grid-small">1</div>
+        <div class="grid-small"></div>  
+      </div>
+    </div>
+
+    <script>
+      var divItems = document.getElementsByClassName("grid-item");
+
+      var Bnum = document.getElementsByClassName("numB");
+      var Inum = document.getElementsByClassName("numI");
+      var Nnum = document.getElementsByClassName("numN");
+      var Gnum = document.getElementsByClassName("numG");
+      var Onum = document.getElementsByClassName("numO");
+      var compArray = [0, 0, 0, 0, 0];
+      var temp = 0;
+      var node;
+      var num;
+      var images = ['img/BlankCardRed.png', 'img/BlankCardRed.png'];
+
+      window.onload = function setColor(){
+
+        var random= Math.floor(Math.random() * 2) + 0;
+        temp = Math.floor(Math.random()*images.length);
+        document.getElementById("grid-container").style.backgroundImage = images[temp];
+
+        setUP(Bnum, 1)
+        setUP(Inum, 16);
+        setUP(Nnum, 31);
+        setUP(Gnum, 46);
+        setUP(Onum, 61);
+      }
+
+      function setUP(item, int){
+        for (var i = 0; i < item.length; i++){
+          num = item[i];
+          num.style.backgroundColor = "white";
+          temp = Math.floor(Math.random()*15) + int;
+          while(compArray.includes(temp)){
+            temp = Math.floor(Math.random()*15) + int;
+          }
+          compArray[i] = temp;
+          node = document.createTextNode(temp);
+          num.append(temp);
+          console.log(temp);
+          
+        }
+      }
+
+      function myHover(item) {
+        item.style.boxShadow = "inset 0 0 0 100vh rgb(255, 0, 0, 0.5)";
+      }
+
+      function leaving(item){
+        item.style.boxShadow = "inset 0 0 0 0vh red";
+      }
+
+      function selected(item) {
+          if (item.style.backgroundColor === "white"){
+            item.style.backgroundColor = "rgb(255, 0, 0, 0.5)";
+          }
+          else {
+            item.style.backgroundColor = "white";
+          }
+      }
+
+      function free(item) {
+          item.style.backgroundColor = "rgb(255, 0, 0, 0.5)";
+      }
+
+    </script>
+  </body>
+</html>
