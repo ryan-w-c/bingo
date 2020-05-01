@@ -103,9 +103,6 @@ body{
 
 .numN {
   color: black;
-  /* background-color: blue; */
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   padding: 1vh;
   font-size: 6vh;
   text-align: center;
@@ -136,9 +133,6 @@ body{
 
 .numG {
   color: black;
-  /* background-color: blue; */
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   padding: 1vh;
   font-size: 6vh;
   text-align: center;
@@ -169,9 +163,6 @@ body{
 
 .numO {
   color: black;
-  /* background-color: blue; */
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   padding: 1vh;
   font-size: 6vh;
   text-align: center;
@@ -202,9 +193,6 @@ body{
 
 .grid-item {
   color: black;
-  /* background-color: blue; */
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   padding: 1vh;
   font-size: 6vh;
   text-align: center;
@@ -235,8 +223,6 @@ body{
 
 .grid-clear {
   opacity: 0;
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   padding: 1vh;
   font-size: 6vh;
   text-align: center;
@@ -246,8 +232,6 @@ body{
 
 .grid-small {
   opacity: 0;
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   font-size: 7.8vh;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -255,8 +239,6 @@ body{
 
 .grid-large {
   opacity: 0;
-  /* padding-right: 0px; */
-  /* padding-left: 40px; */
   font-size: 17.25vh;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -288,10 +270,6 @@ body{
 
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-  /* padding-left: 15%;
-  padding-right: 15%; */
-  /* margin-top: 5vh; */
-  /* padding-top: 44vh; */
   gap: 1vh 1vh;
   padding: 1vh;
   
@@ -345,7 +323,7 @@ h3:hover {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   margin: auto;
-  padding-bottom: 2vh;
+  padding-bottom: 4vh;
 }
 
 .boardLetter{
@@ -368,4 +346,9 @@ h3:hover {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   background-color: black;
+}
+
+p{
+  opacity: 0;
+  font-size: 2vh;
 }
