@@ -23,13 +23,13 @@
         <div class="grid-large">1</div>
         <div class="grid-large">1</div>
         <div class="grid-large"></div>
-        <div class="grid-clear">ww</div>
+        <div class="grid-clear">mw</div>
         <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
         <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
         <div class="numN" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
         <div class="numG" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
         <div class="numO" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
-        <div class="grid-clear">ww</div>
+        <div class="grid-clear">mw</div>
         <div class="grid-clear"></div>
         <div class="numB" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>  
         <div class="numI" onmouseenter=myHover(this) onmouseleave=leaving(this) onclick=selected(this)></div>
@@ -68,99 +68,6 @@
       </div>
     </div>
 
-    <div id="board">
-      <h1>Bingo Numbers</h1>
-      <h2 id="currentLetter">A</h2>
-      <h2 id="current">0</h2>
-      <h3 onclick=draw()>Draw Number</h3>
-      <div id="boardContainer">
-        <div class="boardLetter">B</div>
-        <div class="boardNum">1</div>
-        <div class="boardNum">2</div>
-        <div class="boardNum">3</div>
-        <div class="boardNum">4</div>
-        <div class="boardNum">5</div>
-        <div class="boardNum">6</div>
-        <div class="boardNum">7</div>
-        <div class="boardNum">8</div>
-        <div class="boardNum">9</div>
-        <div class="boardNum">10</div>
-        <div class="boardNum">11</div>
-        <div class="boardNum">12</div>
-        <div class="boardNum">13</div>
-        <div class="boardNum">14</div>
-        <div class="boardNum">15</div>
-        <div class="boardLetter">I</div>
-        <div class="boardNum">16</div>
-        <div class="boardNum">17</div>
-        <div class="boardNum">18</div>
-        <div class="boardNum">19</div>
-        <div class="boardNum">20</div>
-        <div class="boardNum">21</div>
-        <div class="boardNum">22</div>
-        <div class="boardNum">23</div>
-        <div class="boardNum">24</div>
-        <div class="boardNum">25</div>
-        <div class="boardNum">26</div>
-        <div class="boardNum">27</div>
-        <div class="boardNum">28</div>
-        <div class="boardNum">29</div>
-        <div class="boardNum">30</div>
-        <div class="boardLetter">N</div>
-        <div class="boardNum">31</div>
-        <div class="boardNum">32</div>
-        <div class="boardNum">33</div>
-        <div class="boardNum">34</div>
-        <div class="boardNum">35</div>
-        <div class="boardNum">36</div>
-        <div class="boardNum">37</div>
-        <div class="boardNum">38</div>
-        <div class="boardNum">39</div>
-        <div class="boardNum">40</div>
-        <div class="boardNum">41</div>
-        <div class="boardNum">42</div>
-        <div class="boardNum">43</div>
-        <div class="boardNum">44</div>
-        <div class="boardNum">45</div>
-        <div class="boardLetter">G</div>
-        <div class="boardNum">46</div>
-        <div class="boardNum">47</div>
-        <div class="boardNum">48</div>
-        <div class="boardNum">49</div>
-        <div class="boardNum">50</div>
-        <div class="boardNum">51</div>
-        <div class="boardNum">52</div>
-        <div class="boardNum">53</div>
-        <div class="boardNum">54</div>
-        <div class="boardNum">55</div>
-        <div class="boardNum">56</div>
-        <div class="boardNum">57</div>
-        <div class="boardNum">58</div>
-        <div class="boardNum">59</div>
-        <div class="boardNum">60</div>
-        <div class="boardLetter">O</div>
-        <div class="boardNum">61</div>
-        <div class="boardNum">62</div>
-        <div class="boardNum">63</div>
-        <div class="boardNum">64</div>
-        <div class="boardNum">65</div>
-        <div class="boardNum">66</div>
-        <div class="boardNum">67</div>
-        <div class="boardNum">68</div>
-        <div class="boardNum">69</div>
-        <div class="boardNum">70</div>
-        <div class="boardNum">71</div>
-        <div class="boardNum">72</div>
-        <div class="boardNum">73</div>
-        <div class="boardNum">74</div>
-        <div class="boardNum">75</div>
-      </div>
-    </div>
-
-    <div>
-      <p>SPACING</p>
-    </div>
-
     <script>
       var divItems = document.getElementsByClassName("grid-item");
 
@@ -173,14 +80,9 @@
       var temp = 0;
       var node;
       var num;
-      var boardNum = document.getElementsByClassName("boardNum");
-      var boardLetter = document.getElementsByClassName("boardLetter");
       var images = ['url(img/greenMix.png)', 'url(img/blueMix.png)', 'url(img/orangeMix.png)', 'url(img/blackMix.png)', 'url(img/purpleMix.png)', 'url(img/yellowPic.png)', 'url(img/bluePic.png)', 'url(img/redPic.png)', 'url(img/purplePic.png)', 'url(img/greenPic.png)', 'url(img/whiteBlock.png)', 'url(img/greenBlock.png)', 'url(img/blueBlock.png)', 'url(img/redBlock.png)', 'url(img/red.png)', 'url(img/green.png)', 'url(img/blue.png)', 'url(img/purple.png)', 'url(img/orange.png)'];
-      var drawNum = [];
 
       window.onload = function setColor(){
-
-        // var random= Math.floor(Math.random() * 2) + 0;
         temp = Math.floor(Math.random()*images.length);
         document.getElementById("gridContainer").style.backgroundImage = images[temp];
         setUP(Bnum, 1)
@@ -202,46 +104,6 @@
           node = document.createTextNode(temp);
           num.append(temp);          
         }
-      }
-
-      function draw() {
-
-        for (var i = 0; i < boardLetter.length; i++){
-          boardLetter[i].style.backgroundColor = "white";
-        }
-
-        while((drawNum.includes(temp) && drawNum.length < 75) || temp > 74) {
-          temp = Math.floor(Math.random()*75);
-        }
-
-        num = document.getElementById("current");
-        num.innerHTML = "";
-        num.style.color = "white";
-        node = document.createTextNode((temp + 1));
-        num.append(node);
-        boardNum[temp].style.color = "yellow";
-
-        num = document.getElementById("currentLetter");
-        num.innerHTML = "";
-        num.style.color = "white";
-        drawNum.push(temp);
-        if (temp < 15){
-          node = document.createTextNode("B");
-          boardLetter[0].style.backgroundColor = "yellow";
-        } else if (temp < 30){
-          node = document.createTextNode("I");
-          boardLetter[1].style.backgroundColor = "yellow";
-        } else if (temp < 45){
-          node = document.createTextNode("N");
-          boardLetter[2].style.backgroundColor = "yellow";
-        } else if (temp < 60){
-          node = document.createTextNode("G");
-          boardLetter[3].style.backgroundColor = "yellow";
-        } else {
-          node = document.createTextNode("O");
-          boardLetter[4].style.backgroundColor = "yellow";
-        }
-        num.append(node);
       }
 
       function myHover(item) {
