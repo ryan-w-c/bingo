@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class = "widthFormat">
-      <div id="grid-container">
+      <div id="gridContainer">
         <div class="grid-large"></div>
         <div class="grid-large">1</div>
         <div class="grid-large">1</div>
@@ -70,10 +70,10 @@
 
     <div id="board">
       <h1>Bingo Numbers</h1>
-      <h2 id="currentLetter"></h2>
-      <h2 id="current"></h2>
+      <h2 id="currentLetter">A</h2>
+      <h2 id="current">0</h2>
       <h3 onclick=draw()>Draw Number</h3>
-      <div id="board-container">
+      <div id="boardContainer">
         <div class="boardLetter">B</div>
         <div class="boardNum">1</div>
         <div class="boardNum">2</div>
@@ -175,15 +175,14 @@
       var num;
       var boardNum = document.getElementsByClassName("boardNum");
       var boardLetter = document.getElementsByClassName("boardLetter");
-      var images = ['img/BlankCardRed.png', 'img/BlankCardRed.png'];
+      var images = ['url(img/greenMix.png)', 'url(img/blueMix.png)', 'url(img/orangeMix.png)', 'url(img/blackMix.png)', 'url(img/purpleMix.png)', 'url(img/yellowPic.png)', 'url(img/bluePic.png)', 'url(img/redPic.png)', 'url(img/purplePic.png)', 'url(img/greenPic.png)', 'url(img/whiteBlock.png)', 'url(img/greenBlock.png)', 'url(img/blueBlock.png)', 'url(img/redBlock.png)', 'url(img/red.png)', 'url(img/green.png)', 'url(img/blue.png)', 'url(img/purple.png)', 'url(img/orange.png)'];
       var drawNum = [];
 
       window.onload = function setColor(){
 
-        var random= Math.floor(Math.random() * 2) + 0;
+        // var random= Math.floor(Math.random() * 2) + 0;
         temp = Math.floor(Math.random()*images.length);
-        document.getElementById("grid-container").style.backgroundImage = images[temp];
-
+        document.getElementById("gridContainer").style.backgroundImage = images[temp];
         setUP(Bnum, 1)
         setUP(Inum, 16);
         setUP(Nnum, 31);
@@ -206,8 +205,9 @@
       }
 
       function draw() {
+
         for (var i = 0; i < boardLetter.length; i++){
-          boardLetter[i].style.backgroundColor = "yellow";
+          boardLetter[i].style.backgroundColor = "white";
         }
 
         while((drawNum.includes(temp) && drawNum.length < 75) || temp > 74) {
@@ -216,28 +216,30 @@
 
         num = document.getElementById("current");
         num.innerHTML = "";
+        num.style.color = "white";
         node = document.createTextNode((temp + 1));
         num.append(node);
         boardNum[temp].style.color = "yellow";
 
         num = document.getElementById("currentLetter");
         num.innerHTML = "";
+        num.style.color = "white";
         drawNum.push(temp);
         if (temp < 15){
           node = document.createTextNode("B");
-          boardLetter[0].style.backgroundColor = "white";
+          boardLetter[0].style.backgroundColor = "yellow";
         } else if (temp < 30){
           node = document.createTextNode("I");
-          boardLetter[1].style.backgroundColor = "white";
+          boardLetter[1].style.backgroundColor = "yellow";
         } else if (temp < 45){
           node = document.createTextNode("N");
-          boardLetter[2].style.backgroundColor = "white";
+          boardLetter[2].style.backgroundColor = "yellow";
         } else if (temp < 60){
           node = document.createTextNode("G");
-          boardLetter[3].style.backgroundColor = "white";
+          boardLetter[3].style.backgroundColor = "yellow";
         } else {
           node = document.createTextNode("O");
-          boardLetter[4].style.backgroundColor = "white";
+          boardLetter[4].style.backgroundColor = "yellow";
         }
         num.append(node);
       }
