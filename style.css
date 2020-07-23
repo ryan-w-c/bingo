@@ -21,17 +21,17 @@ body{
   background-position: center center;
   -webkit-print-color-adjust: exact !important;
 
-  height: 98vh;
-  width: 90vh;
+  height: 98vmin;
+  width: 90vmin;
   margin: auto;
 
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
   /* padding-left: 15%;
   padding-right: 15%; */
-  /* margin-top: 5vh; */
-  /* padding-top: 44vh; */
-  gap: 1vh 1.4vh;
+  /* margin-top: 5vmin; */
+  /* padding-top: 44vmin; */
+  gap: 1vmin 1.4vmin;
   position: relative;
 }
 
@@ -40,8 +40,8 @@ body{
   /* background-color: blue; */
   /* padding-right: 0px; */
   /* padding-left: 40px; */
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1min;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -73,8 +73,8 @@ body{
   /* background-color: blue; */
   /* padding-right: 0px; */
   /* padding-left: 40px; */
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1vmin;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -103,8 +103,8 @@ body{
 
 .numN {
   color: black;
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1vmin;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -133,8 +133,8 @@ body{
 
 .numG {
   color: black;
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1vmin;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -163,8 +163,8 @@ body{
 
 .numO {
   color: black;
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1vmin;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -193,8 +193,8 @@ body{
 
 .grid-item {
   color: black;
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1vmin;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -223,8 +223,8 @@ body{
 
 .grid-clear {
   opacity: 0;
-  padding: 1vh;
-  font-size: 6vh;
+  padding: 1vmin;
+  font-size: 6vmin;
   text-align: center;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif;
@@ -232,14 +232,14 @@ body{
 
 .grid-small {
   opacity: 0;
-  font-size: 7.8vh;
+  font-size: 7.8vmin;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid-large {
   opacity: 0;
-  font-size: 17.25vh;
+  font-size: 17.25vmin;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
 }
