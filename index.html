@@ -15,6 +15,52 @@
     </script>
   </head>
   <body>
+
+    <div class="hamburger high" style="font-size:3.3rem;" onclick=openNav()>&#9881;</div>
+    <div class="hamburger low" style="font-size:2.6rem;" onclick=rotate(this)>&#10227;</div>
+
+    <div id="myNav" class="overlay">
+        <div class="pop__card">
+          <main class="home">
+            <section class="pop">
+              <header class="pop__header">
+                <h1 class="info__title">Settings</h1>
+                <span class="info__spacer"></span>
+                <form>
+                  <p class="info__subtext">Number Range per Column (5 - 19)</p>
+                  <input type="text" id="range" value="15"><br>
+                  <span class="spacer"></span>
+                  <p class="info__subtext">Card Style</p>
+                  <input type="radio" id="random" name="style" value=images checked>
+                  <label for="random">Random</label><br>
+                  <input type="radio" id="simple" name="style" value=simple>
+                  <label for="simple">Simple</label><br>
+                  <input type="radio" id="fancy" name="style" value=fancy>
+                  <label for="fancy">Fancy</label><br>
+                  <input type="radio" id="circus" name="style" value=circus>
+                  <label for="circus">Circus</label><br>
+                  <input type="radio" id="western" name="style" value=western>
+                  <label for="western">Western</label><br>
+                  <span class="spacer"></span>
+                  <p class="info__subtext">Dauber Color</p>
+                  <input type="radio" id="red" name="color" value="rgb(255, 0, 0, 0.5)" checked>
+                  <label for="red">Red</label><br>
+                  <input type="radio" id="orange" name="color" value="rgb(255, 159, 14, 0.5)">
+                  <label for="orange">Orange</label><br>
+                  <input type="radio" id="green" name="color" value="rgb(0, 185, 85, 0.4)">
+                  <label for="green">Green</label><br>
+                  <input type="radio" id="blue" name="color" value="rgb(4, 135, 253, 0.4)">
+                  <label for="blue">Blue</label><br>
+                  <input type="radio" id="purple" name="color" value="rgb(158, 0, 253, 0.4)">
+                  <label for="purple">Purple</label><br>
+                  <input id="saveButton" type="button" name="submit" class="info__link" onclick="save()" value="Save">
+                </form>
+              </header>
+            </section>  
+          </main>
+        </div>
+    </div>
+
     <div class = "widthFormat">
       <div id="gridContainer">
         <div class="grid-large"></div>
@@ -70,45 +116,84 @@
     </div>
 
     <script>
-      var divItems = document.getElementsByClassName("grid-item");
+      const divItems = document.getElementsByClassName("grid-item");
 
-      var Bnum = document.getElementsByClassName("numB");
-      var Inum = document.getElementsByClassName("numI");
-      var Nnum = document.getElementsByClassName("numN");
-      var Gnum = document.getElementsByClassName("numG");
-      var Onum = document.getElementsByClassName("numO");
+      const Bnum = document.getElementsByClassName("numB");
+      const Inum = document.getElementsByClassName("numI");
+      const Nnum = document.getElementsByClassName("numN");
+      const Gnum = document.getElementsByClassName("numG");
+      const Onum = document.getElementsByClassName("numO");
       var compArray = [0, 0, 0, 0, 0];
       var temp = 0;
       var node;
       var num;
-      var images = ['url(img/greenMix.png)', 'url(img/blueMix.png)', 'url(img/orangeMix.png)', 'url(img/blackMix.png)', 'url(img/purpleMix.png)', 'url(img/yellowPic.png)', 'url(img/bluePic.png)', 'url(img/redPic.png)', 'url(img/purplePic.png)', 'url(img/greenPic.png)', 'url(img/whiteBlock.png)', 'url(img/greenBlock.png)', 'url(img/blueBlock.png)', 'url(img/redBlock.png)', 'url(img/red.png)', 'url(img/green.png)', 'url(img/blue.png)', 'url(img/purple.png)', 'url(img/orange.png)'];
+      const circus = ['url(img/greenMix.png)', 'url(img/blueMix.png)', 'url(img/orangeMix.png)', 'url(img/blackMix.png)', 'url(img/purpleMix.png)'];
+      const fancy = ['url(img/yellowPic.png)', 'url(img/bluePic.png)', 'url(img/redPic.png)', 'url(img/purplePic.png)', 'url(img/greenPic.png)'];
+      const western = ['url(img/whiteBlock.png)', 'url(img/greenBlock.png)', 'url(img/blueBlock.png)', 'url(img/redBlock.png)'];
+      const simple = ['url(img/red.png)', 'url(img/green.png)', 'url(img/blue.png)', 'url(img/purple.png)', 'url(img/orange.png)'];
+      const images = circus.concat(fancy).concat(western).concat(simple);
+      const myNav = document.getElementById("myNav");
+      const rangeID = document.getElementById("range");
+      var range = 15;
+      var cards = images;
+      var color = "rgb(255, 0, 0, 0.5)";
 
-      window.onload = function setColor(){
-        temp = Math.floor(Math.random()*images.length);
-        document.getElementById("gridContainer").style.backgroundImage = images[temp];
-        setUP(Bnum, 1)
-        setUP(Inum, 16);
-        setUP(Nnum, 31);
-        setUP(Gnum, 46);
-        setUP(Onum, 61);
+      window.onload = setColor();
+      
+      function setColor(){
+        temp = Math.floor(Math.random()*cards.length);
+        document.getElementById("gridContainer").style.backgroundImage = cards[temp];
+        setUP(Bnum, 1, range)
+        setUP(Inum, 1 + (range * 1), range);
+        setUP(Nnum, (1 + (range * 2)), range);
+        setUP(Gnum, (1 + (range * 3)), range);
+        setUP(Onum, (1 + (range * 4)), range);
       }
 
-      function setUP(item, int){
+      function rotate(item){
+        item.style.transition = "transform 0.7s ease";
+        item.style.transform = "rotate(360deg)";
+        setColor(); 
+        setTimeout(function () {
+          item.style.transition = "";
+          item.style.transform = "rotate(0deg)";
+        }, 700);
+      }
+
+      function myFunction() {
+        // Get the value of the input field with id="numb"
+        num = document.getElementById("range").value;
+
+        // If x is Not a Number or less than one or greater than 10
+        if (isNaN(num) || num < 5 || num > 25) {
+          text = "Input not valid";
+        } else {
+          text = "Input OK";
+        }
+        document.getElementById("demo").innerHTML = text;
+      }
+
+      function setUP(item, int, factor){
         for (var i = 0; i < item.length; i++){
           num = item[i];
           num.style.backgroundColor = "white";
-          temp = Math.floor(Math.random()*15) + int;
+          temp = Math.floor(Math.random()*factor) + int;
           while(compArray.includes(temp)){
-            temp = Math.floor(Math.random()*15) + int;
+            temp = Math.floor(Math.random()*factor) + int;
           }
           compArray[i] = temp;
           node = document.createTextNode(temp);
-          num.append(temp);          
+          num.innerHTML = temp;
         }
       }
 
+      function openNav() {
+        myNav.style.width = "100%";
+        myNav.scrollTo(0, 0);
+      }
+
       function myHover(item) {
-        item.style.boxShadow = "inset 0 0 0 100vh rgb(255, 0, 0, 0.5)";
+        item.style.boxShadow = "inset 0 0 0 100vh " + color;
       }
 
       function leaving(item){
@@ -117,7 +202,7 @@
 
       function selected(item) {
           if (item.style.backgroundColor === "white"){
-            item.style.backgroundColor = "rgb(255, 0, 0, 0.5)";
+            item.style.backgroundColor = color;
           }
           else {
             item.style.backgroundColor = "white";
@@ -125,7 +210,23 @@
       }
 
       function free(item) {
-          item.style.backgroundColor = "rgb(255, 0, 0, 0.5)";
+          item.style.backgroundColor = color;
+      }
+
+      function save() {
+        temp = rangeID.value;
+        if (isNaN(temp) || temp < 5 || temp > 19) {
+          rangeID.style.backgroundColor = "rgb(255, 0, 0, 0.5)";
+        } else {
+          rangeID.style.backgroundColor = "white";
+          range = rangeID.value;
+          cards = eval(document.querySelector('input[name=style]:checked').value);
+          color = document.querySelector('input[name=color]:checked').value;
+          console.log(color);
+          console.log(cards);
+          myNav.style.width = "0%";
+          setColor();
+        }
       }
 
     </script>
