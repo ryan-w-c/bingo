@@ -492,25 +492,4 @@ input:checked[type="radio"] {
     margin: auto;
   }
 
-  /* .info,
-  .cards,
-  .pop {
-    grid-column: 1 / span 2;
-    max-width: 95%;
-    margin: auto;
-    padding-bottom: 0px;
-  } */
-    
 }
-
-/* @media screen and (max-width: 600px) {
-
-  .info__title {
-      font-family: yoxall, sans-serif;
-      font-size: 3rem;
-      color: var(--dark001);
-      line-height: 105%;
-      margin-bottom: 56px;
-  }
-
-} */
