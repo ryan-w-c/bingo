@@ -53,7 +53,7 @@
                   <label for="blue">Blue</label><br>
                   <input type="radio" id="purple" name="color" value="rgb(158, 0, 253, 0.4)">
                   <label for="purple">Purple</label><br>
-                  <input id="saveButton" type="button" name="submit" class="info__link" onclick="save()" value="Save">
+                  <div id="saveButton" name="submit" class="info__link" onclick="save()">Save</div>
                 </form>
               </header>
             </section>  
@@ -113,6 +113,11 @@
         <div class="grid-small">1</div>
         <div class="grid-small"></div>  
       </div>
+    </div>
+
+    <div>
+      <div name="submit" class="small" onclick="openNav()">Settings</div>
+      <div name="submit" class="small" onclick="setColor()">Reload</div>
     </div>
 
     <script>
