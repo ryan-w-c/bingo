@@ -26,6 +26,7 @@ body{
   border-radius: 50%;  
   z-index: 5;
   pointer-events: none;
+  border: 2px solid var(--light001);
 }
 
 .circle {
@@ -36,7 +37,7 @@ body{
   border-radius: 50%;  
   z-index: 4;
   pointer-events: none;
-  transition: width 0.5s, height 0.5s;
+  transition: width 0.3s, height 0.3s;
 }
 
 label, input[type="text"] {
@@ -143,11 +144,10 @@ input:checked[type="radio"] {
   margin-right: auto;
 }
 
-.info__link:hover {
+.info__link:hover, .small:hover {
   background-color: var(--light001);
   color: var(--dark001);
   border: 2px solid var(--dark001);
-
 }
 
 .info__title {
@@ -246,7 +246,7 @@ input:checked[type="radio"] {
 }
 
 .numB {
-  color: black;
+  color: var(--dark001);
   padding: 1min;
   font-size: 6vmin;
   text-align: center;
@@ -278,7 +278,7 @@ input:checked[type="radio"] {
 }
 
 .numI {
-  color: black;
+  color: var(--dark001);
   padding: 1vmin;
   font-size: 6vmin;
   text-align: center;
@@ -310,7 +310,7 @@ input:checked[type="radio"] {
 }
 
 .numN {
-  color: black;
+  color: var(--dark001);
   padding: 1vmin;
   font-size: 6vmin;
   text-align: center;
@@ -343,7 +343,7 @@ input:checked[type="radio"] {
 }
 
 .numG {
-  color: black;
+  color: var(--dark001);
   padding: 1vmin;
   font-size: 6vmin;
   text-align: center;
@@ -376,7 +376,7 @@ input:checked[type="radio"] {
 }
 
 .numO {
-  color: black;
+  color: var(--dark001);
   padding: 1vmin;
   font-size: 6vmin;
   text-align: center;
@@ -409,7 +409,7 @@ input:checked[type="radio"] {
 }
 
 .grid-item {
-  color: black;
+  color: var(--dark001);
   padding: 1vmin;
   font-size: 6vmin;
   text-align: center;
@@ -436,6 +436,9 @@ input:checked[type="radio"] {
   display:box;
   box-pack:center;
   box-align:center;
+
+  transition: background-color 0.5s;
+
 }
 
 .grid-clear {

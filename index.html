@@ -73,39 +73,39 @@
         <div class="grid-large">1</div>
         <div class="grid-large"></div>
         <div class="grid-clear">mw</div>
-        <div class="numB" onclick=selected(this)></div>
-        <div class="numI" onclick=selected(this)></div>
-        <div class="numN" onclick=selected(this)></div>  
-        <div class="numG" onclick=selected(this)></div>
-        <div class="numO" onclick=selected(this)></div>
+        <div class="numB" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>  
+        <div class="numG" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
         <div class="grid-clear">mw</div>
         <div class="grid-clear"></div>
-        <div class="numB" onclick=selected(this)></div>  
-        <div class="numI" onclick=selected(this)></div>
-        <div class="numN" onclick=selected(this)></div>
-        <div class="numG" onclick=selected(this)></div>  
-        <div class="numO" onclick=selected(this)></div>
+        <div class="numB" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>  
+        <div class="numG" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
         <div class="grid-clear"></div>
         <div class="grid-clear"></div>
-        <div class="numB" onclick=selected(this)></div>
-        <div class="numI" onclick=selected(this)></div>  
-        <div class="grid-item" onclick=free(this)></div>
-        <div class="numG" onclick=selected(this)></div>
-        <div class="numO" onclick=selected(this)></div>  
+        <div class="numB" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="grid-item" onmouseenter=myHover() onmouseleave=leaving() onclick=free(this)></div>
+        <div class="numG" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
         <div class="grid-clear"></div>
         <div class="grid-clear"></div>
-        <div class="numB" onclick=selected(this)></div>
-        <div class="numI" onclick=selected(this)></div>
-        <div class="numN" onclick=selected(this)></div> 
-        <div class="numG" onclick=selected(this)></div>
-        <div class="numO" onclick=selected(this)></div>
+        <div class="numB" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>  
+        <div class="numG" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
         <div class="grid-clear"></div>
         <div class="grid-clear"></div> 
-        <div class="numB" onclick=selected(this)></div>
-        <div class="numI" onclick=selected(this)></div>
-        <div class="numN" onclick=selected(this)></div>  
-        <div class="numG" onclick=selected(this)></div>
-        <div class="numO" onclick=selected(this)></div> 
+        <div class="numB" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numI" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numN" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>  
+        <div class="numG" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
+        <div class="numO" onmouseenter=myHover() onmouseleave=leaving() onclick=selected(this)></div>
         <div class="grid-clear"></div>
         <div class="grid-small"></div>
         <div class="grid-small">1</div>
@@ -145,6 +145,7 @@
       var cards = images;
       var color = "rgb(255, 0, 0, 0.5)";
       const circle = document.getElementById("circle");
+
 
       window.onload = setColor();
       
@@ -200,17 +201,15 @@
         myNav.scrollTo(0, 0);
       }
 
-      // function myHover(item) {
-      //   // item.style.boxShadow = "inset 0 0 0 100vh " + color;
-      //   // circle.style.width = "8vmin";
-      //   // circle.style.height = "8vmin";
-      // }
+      function myHover() {
+        circle.style.width = "7vmin";
+        circle.style.height = "7vmin";
+      }
 
-      // function leaving(item){
-      //   // item.style.boxShadow = "inset 0 0 0 0vh red";
-      //   // circle.style.width = "45px";
-      //   // circle.style.height = "45px";
-      // }
+      function leaving(){
+        circle.style.width = "4vmin";
+        circle.style.height = "4vmin";
+      }
 
       function selected(item) {
           if (item.style.backgroundColor === "white"){
@@ -243,11 +242,12 @@
       jQuery(document).ready(function() {
 
         var mouseX = 0, mouseY = 0, pointerX = 0, pointerY = 0;
-        var xp = 0, yp = 0;
+        var xp = 0, yp = 0, xy;
         
         $(document).mousemove(function(e){
-          mouseX = e.pageX - 22.5;
-          mouseY = e.pageY - 22.5; 
+          var xy = $("#circle").width() / 2;
+          mouseX = e.pageX - xy;
+          mouseY = e.pageY - xy; 
           pointerX = e.pageX - 5;
           pointerY = e.pageY - 5
         });
